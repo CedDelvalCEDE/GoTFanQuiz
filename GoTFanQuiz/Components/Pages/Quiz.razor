@@ -2,18 +2,18 @@
 
 <PageTitle>Quiz</PageTitle>
 
-@answer
-
 @code {
-    public Answer ?answer;
-    Uri urlCharacter = new Uri("https://api.gameofthronesquotes.xyz/v1/characters");
+    public List<Characters> ?answer;
+    // Uri urlCharacter = new Uri("https://api.gameofthronesquotes.xyz/v1/characters");
     public HttpClient httpClient = new HttpClient();
     protected override async Task OnInitializedAsync() {
-        answer = await httpClient.GetFromJsonAsync<Answer>(urlCharacter);
+        answer = await GetCharactersAsync("https://api.gameofthronesquotes.xyz/v1/characters");
+        Console.Write(answer[0].name);
     }
-
-    public class Answer {
-        public List<Characters> characters {set; get;}
+    public async Task<List<Characters>> GetCharactersAsync(string url)
+    {
+        var response = await httpClient.GetStringAsync(url);
+        return JsonSerializer.Deserialize<List<Characters>>(response, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
     }
 
     public class Characters {
