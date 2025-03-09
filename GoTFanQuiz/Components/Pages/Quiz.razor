@@ -1,0 +1,30 @@
+@page "/quiz"
+
+<PageTitle>Quiz</PageTitle>
+
+@answer
+
+@code {
+    public Answer ?answer;
+    Uri urlCharacter = new Uri("https://api.gameofthronesquotes.xyz/v1/characters");
+    public HttpClient httpClient = new HttpClient();
+    protected override async Task OnInitializedAsync() {
+        answer = await httpClient.GetFromJsonAsync<Answer>(urlCharacter);
+    }
+
+    public class Answer {
+        public List<Characters> characters {set; get;}
+    }
+
+    public class Characters {
+        public string name {set; get;}
+        public string slug {set; get;}
+        public House house {set; get;}
+        public List<string> quotes {set; get;}
+    }
+    
+    public class House {
+        public string slug {set; get;}
+        public string name {set; get;}
+    }
+}
