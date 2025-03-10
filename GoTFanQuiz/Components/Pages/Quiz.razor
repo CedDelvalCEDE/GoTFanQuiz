@@ -2,14 +2,29 @@
 
 <PageTitle>Quiz</PageTitle>
 
+@if (answer == null && hvs == null) {
+    <p>chargement...</p>
+}
+else {
+    <p>@hvs.chosen.name</p>
+    <div id="quiz">
+        <p>Who said that Quote : @hvs.selectedQuote</p>
+        <button class="btn-quiz" @onclick="() => hvs.GoodAnswer(0)">@hvs.selectionSqueezed[0]</button>
+        <button class="btn-quiz" @onclick="() => hvs.GoodAnswer(1)">@hvs.selectionSqueezed[1]</button>
+        <button class="btn-quiz" @onclick="() => hvs.GoodAnswer(2)">@hvs.selectionSqueezed[2]</button>
+    </div>
+}
+
+
 @code {
     public List<Characters> ?answer;
-    // Uri urlCharacter = new Uri("https://api.gameofthronesquotes.xyz/v1/characters");
+    public HtmlVariablesSetter ?hvs;
     public HttpClient httpClient = new HttpClient();
     protected override async Task OnInitializedAsync() {
         answer = await GetCharactersAsync("https://api.gameofthronesquotes.xyz/v1/characters");
-        Console.Write(answer[0].name);
+        hvs = new HtmlVariablesSetter(answer);
     }
+    
     public async Task<List<Characters>> GetCharactersAsync(string url)
     {
         var response = await httpClient.GetStringAsync(url);
@@ -26,5 +41,77 @@
     public class House {
         public string slug {set; get;}
         public string name {set; get;}
+    }
+    public class HtmlVariablesSetter {
+        List<Characters> data;
+        List<int> selection = [0];
+
+        public List<string> selectionSqueezed = ["","",""];
+        List<int> squeeze = [0];
+        Random selector = new Random();
+        public Characters chosen {set; get;}
+        public Characters firstBait {set; get;}
+        public Characters secondBait {set; get;}
+        public string selectedQuote {set; get;}
+
+        public bool good {set; get;} = false;
+
+        public HtmlVariablesSetter(List<Characters> answer) {
+            data = answer;
+            reset();
+        }
+
+        private void reset() {
+            SetSelection();
+            SetOutput(data);
+        }
+
+        private void SetSelection() {
+            selection.Clear();
+            squeeze.Clear();
+            selection = distinctArrayElement(37);
+            squeeze = distinctArrayElement(3);     
+        }
+
+        private List<int> distinctArrayElement(int angle) {
+            bool goodOne = true; bool goodTwo = true; bool goodThree = true; List<int> select = [0]; select.Clear();
+            do {
+                for (int i = 0; i < 3; i++) { 
+                    select.Add(selector.Next(angle)); 
+                }
+                goodOne = select[0] == select[1];
+                goodTwo = select[0] == select[2];
+                goodThree = select[1] == select[2];
+                if (goodOne || goodThree) {
+                    select[1] = selector.Next(angle);
+                }
+                if (goodTwo) {
+                    select[2] = selector.Next(angle);
+                }
+                goodOne = select[0] == select[1];
+                goodTwo = select[0] == select[2];
+                goodThree = select[1] == select[2];
+            }
+            while (goodOne || goodTwo || goodThree);
+
+            return select;
+        }
+
+        private void SetOutput (List<Characters> answer) {
+            chosen = answer[selection[0]];
+            firstBait = answer[selection[1]];
+            secondBait = answer[selection[2]];
+            selectedQuote = chosen.quotes[selector.Next(chosen.quotes.Count())];
+            selectionSqueezed[squeeze[0]] = chosen.name;
+            selectionSqueezed[squeeze[1]] = firstBait.name;
+            selectionSqueezed[squeeze[2]] = secondBait.name;
+        }
+
+        public void GoodAnswer (int choice) {
+            Console.WriteLine(selectionSqueezed[choice]);
+            @* if (character == chosen.name) {
+                good = true;
+            } *@
+        }
     }
 }

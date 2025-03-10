@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GoTFanQuiz")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+27046432cfdea69d0224ad85c720cfa5e9bb6377")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+237511bbd7a24f2833a12d07a4d16cc039d68b5f")]
 [assembly: System.Reflection.AssemblyProductAttribute("GoTFanQuiz")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GoTFanQuiz")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

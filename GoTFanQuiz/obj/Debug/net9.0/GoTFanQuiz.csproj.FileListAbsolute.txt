@@ -16,7 +16,6 @@ C:\Users\guste\Documents\CEDE\second year\Progra Objet\GoTFanQuiz\GoTFanQuiz\obj
 C:\Users\guste\Documents\CEDE\second year\Progra Objet\GoTFanQuiz\GoTFanQuiz\obj\Debug\net9.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
 C:\Users\guste\Documents\CEDE\second year\Progra Objet\GoTFanQuiz\GoTFanQuiz\obj\Debug\net9.0\scopedcss\bundle\GoTFanQuiz.styles.css
 C:\Users\guste\Documents\CEDE\second year\Progra Objet\GoTFanQuiz\GoTFanQuiz\obj\Debug\net9.0\scopedcss\projectbundle\GoTFanQuiz.bundle.scp.css
-C:\Users\guste\Documents\CEDE\second year\Progra Objet\GoTFanQuiz\GoTFanQuiz\obj\Debug\net9.0\compressed\i59mz0nez5-khy4lop6wu.gz
 C:\Users\guste\Documents\CEDE\second year\Progra Objet\GoTFanQuiz\GoTFanQuiz\obj\Debug\net9.0\compressed\h2od7d0lxp-bqjiyaj88i.gz
 C:\Users\guste\Documents\CEDE\second year\Progra Objet\GoTFanQuiz\GoTFanQuiz\obj\Debug\net9.0\compressed\kat50ja4fi-c2jlpeoesf.gz
 C:\Users\guste\Documents\CEDE\second year\Progra Objet\GoTFanQuiz\GoTFanQuiz\obj\Debug\net9.0\compressed\guuznpvs33-erw9l3u2r3.gz
@@ -77,3 +76,5 @@ C:\Users\guste\Documents\CEDE\second year\Progra Objet\GoTFanQuiz\GoTFanQuiz\obj
 C:\Users\guste\Documents\CEDE\second year\Progra Objet\GoTFanQuiz\GoTFanQuiz\obj\Debug\net9.0\GoTFanQuiz.pdb
 C:\Users\guste\Documents\CEDE\second year\Progra Objet\GoTFanQuiz\GoTFanQuiz\obj\Debug\net9.0\GoTFanQuiz.genruntimeconfig.cache
 C:\Users\guste\Documents\CEDE\second year\Progra Objet\GoTFanQuiz\GoTFanQuiz\obj\Debug\net9.0\ref\GoTFanQuiz.dll
+C:\Users\guste\Documents\CEDE\second year\Progra Objet\GoTFanQuiz\GoTFanQuiz\obj\Debug\net9.0\GoTFanQuiz.sourcelink.json
+C:\Users\guste\Documents\CEDE\second year\Progra Objet\GoTFanQuiz\GoTFanQuiz\obj\Debug\net9.0\compressed\i59mz0nez5-167z3nko84.gz
