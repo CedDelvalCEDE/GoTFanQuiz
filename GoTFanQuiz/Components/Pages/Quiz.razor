@@ -13,6 +13,9 @@ else {
         <button class="btn-quiz" @onclick="() => hvs.GoodAnswer(1)">@hvs.selectionSqueezed[1]</button>
         <button class="btn-quiz" @onclick="() => hvs.GoodAnswer(2)">@hvs.selectionSqueezed[2]</button>
     </div>
+    @if (hvs.good) {
+        <p> @hvs.chosen était la bonne réponse</p>
+    }
 }
 
 
@@ -109,9 +112,9 @@ else {
 
         public void GoodAnswer (int choice) {
             Console.WriteLine(selectionSqueezed[choice]);
-            @* if (character == chosen.name) {
+            if (selectionSqueezed[choice] == chosen.name) {
                 good = true;
-            } *@
+            }
         }
     }
 }

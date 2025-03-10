@@ -7,6 +7,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 var app = builder.Build();
+// builder.WebHost.UseUrls("https://localhost:7019", "http://localhost:5278");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
